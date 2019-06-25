@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	_ "github.com/lib/pq" // Side-effect import sql driver
+	_ "github.com/jackc/pgx/stdlib" // Side-effect import sql driver
 	"github.com/pkg/errors"
 	"github.com/volatiletech/sqlboiler/drivers"
 	"github.com/volatiletech/sqlboiler/importers"
@@ -569,7 +569,7 @@ func (d *CockroachDBDriver) Imports() (importers.Collection, error) {
 				`"github.com/pkg/errors"`,
 				`"github.com/spf13/viper"`,
 				`"github.com/volatiletech/sqlboiler/randomize"`,
-				`_ "github.com/lib/pq"`,
+				`_ "github.com/jackc/pgx/stdlib"`,
 			},
 		},
 	}
