@@ -70,7 +70,7 @@ func (d *CockroachDBDriver) Assemble(config drivers.Config) (dbinfo *drivers.DBI
 	useSchema := schema != "public"
 
 	d.connStr = buildQueryString(user, pass, dbname, host, port, sslmode)
-	d.conn, err = sql.Open("postgres", d.connStr)
+	d.conn, err = sql.Open("pgx", d.connStr)
 	if err != nil {
 		return nil, errors.Wrap(err, "sqlboiler-crdb failed to connect to database")
 	}

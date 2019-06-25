@@ -128,7 +128,7 @@ func (c *crdbTester) conn() (*sql.DB, error) {
   }
 
   var err error
-  c.dbConn, err = sql.Open("postgres", c.testDBURL)
+  c.dbConn, err = sql.Open("pgx", c.testDBURL)
   if err != nil {
     return nil, err
   }
