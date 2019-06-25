@@ -272,7 +272,7 @@ func (d *CockroachDBDriver) Columns(schema, tableName string, whitelist, blackli
 			return nil, errors.Wrapf(err, "unable to scan for table %s", tableName)
 		}
 
-		// TODO(glerchundi): find a better way to infer this.
+		// TODO(homee-engineering): find a better way to infer this.
 		dbType := strings.ToLower(re.ReplaceAllString(colType, ""))
 		tmp := strings.Replace(dbType, "[]", "", 1)
 		if dbType != tmp {

@@ -5,7 +5,7 @@
 Installation is simple, just use go get. Once the binary is in your path sqlboiler will be able to use it if you run it with the driver name `crdb`.
 ```
 # Install sqlboiler crdb driver
-go get -u github.com/glerchundi/sqlboiler-crdb
+go get -u github.com/homee-engineering/sqlboiler-crdb
 # Generate models
 sqlboiler crdb
 ```
