@@ -6,7 +6,7 @@
 // crdb_test.go (2.302kB)
 // testdatabase.sql (5.418kB)
 
-package main
+package driver
 
 import (
 	"bytes"
