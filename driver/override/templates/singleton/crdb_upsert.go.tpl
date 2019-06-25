@@ -14,7 +14,7 @@ func buildUpsertQueryCockroachDB(dia drivers.Dialect, tableName string, updateOn
 			strmangle.Placeholders(dia.UseIndexPlaceholders, len(whitelist), 1, 1))
 	}
 
-	_, _ = fmt.Fprintf(
+	fmt.Fprintf(
 		buf,
 		"INSERT INTO %s %s ON CONFLICT ",
 		tableName,
@@ -29,7 +29,9 @@ func buildUpsertQueryCockroachDB(dia drivers.Dialect, tableName string, updateOn
 	if !updateOnConflict || len(update) == 0 {
 		buf.WriteString("DO NOTHING")
 	} else {
-		buf.WriteString("DO UPDATE SET ")
+		buf.WriteByte('(')
+		buf.WriteString(strings.Join(conflict, ", "))
+		buf.WriteString(") DO UPDATE SET ")
 
 		for i, v := range update {
 			if i != 0 {
